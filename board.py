@@ -7,10 +7,10 @@ class Board:
         height = 504
 
         # window
-        self.bord = pygame.display.set_mode((width, height))
+        self.board = pygame.display.set_mode((width, height))
         # background
-        white = (255, 255, 255)
-        black = (0, 0, 0)
+        white = (100, 100, 100)
+        black = (50, 50, 50)
         colors = [white, black]
         left, top = 0, 0
         tile_width, tile_height = 100, 72
@@ -20,7 +20,7 @@ class Board:
                 top += tile_height
                 left = 0
                 colors = list(reversed(colors))
-            pygame.draw.rect(self.bord, colors[i % 2], pygame.Rect(left, top, tile_width, tile_height))
+            pygame.draw.rect(self.board, colors[i % 2], pygame.Rect(left, top, tile_width, tile_height))
             left += tile_width
 
         # displaying

@@ -1,8 +1,10 @@
 import pygame
 from pygame.locals import *
-from board import Board
+from pieces import Pieces
 
-board = Board()
+pygame.init()
+
+pieces = Pieces()
 
 running = True
 while running:
