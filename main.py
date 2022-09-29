@@ -45,22 +45,22 @@ while running:
                         new_pos = str(tiles).strip('<rect(')
                         new_pos = eval(new_pos.strip(')>'))
                         new_pos = (new_pos[0] + 15, new_pos[1])
+
                         for k in range(len(chess.data)):
-                            if target_pos == chess.data[k]['pos']:
+                            if target_pos == chess.data[k]['pos'] and target_pos != new_pos:
+                                if chess.data[k]['pos'] == new_pos:
+                                    print('ops')
                                 # updating position
                                 chess.data[k]['pos'] = new_pos  # pos
-
                                 # updating rectangle
                                 chess.data[k]['rect'] = pygame.Rect(new_pos[0] - 15, new_pos[1], 100, 72)
-
                                 # pushing new data
                                 new_data = chess.data
                                 chess = Pieces(new_data)
-
                                 # updating moves
                                 moves += 1
                                 turn = piece_color[moves % 2]
-                                print(moves)
+                                break
 
                 status_click = 0
 
@@ -72,9 +72,10 @@ while running:
                     # verification of collied point
                     if pieces_rect.collidepoint(mouse_pos):
                         color = data[i]['src'].split('/')[2]
+                        name = data[i]['src'].split('/')[-1].split('.')[0]
+                        src = data[i]['src']
                         # managing turn
                         if moves == 0:
-                            turn = color
                             moves = piece_color.index(color)
                             turn = piece_color[moves % 2]
 
@@ -85,4 +86,3 @@ while running:
                             target_pos = pos_index
 
                         status_click = 1
-

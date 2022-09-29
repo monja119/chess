@@ -32,12 +32,14 @@ class Pieces:
                     })
 
                     # loading
+
                     piece = pygame.image.load(src).convert_alpha()
                     window.blit(piece, pos)  # loading
         else:
             board.draw_board()
             for i in range(len(data)):
-                piece = pygame.image.load(data[i]['src']).convert_alpha()
-                window.blit(piece, data[i]['pos'])
+                if data[i]['pos'] != (-1, -1):
+                    piece = pygame.image.load(data[i]['src']).convert_alpha()
+                    window.blit(piece, data[i]['pos'])
         # updating game
         pygame.display.flip()
