@@ -1,9 +1,166 @@
 {
     "white": {
-        "l_round": "(15, 0)",
-        "l_knight": "(115, 0)",
-        "l_mad": "(215, 0)",
-        "king": "(315, 0)",
-        "queen": "(415, 0)"
+        "l_round": {
+            "pos":["(15, 0)"],
+            "src" : "images/pieces/white/round.png",
+            "status" : "active"
+        },
+        "l_knight": {
+            "pos":["(115, 0)"],
+            "src" : "images/pieces/white/knight.png",
+            "status" : "active"
+        },
+        "l_mad": {
+            "pos":["(215, 0)"],
+            "src" : "images/pieces/white/mad.png",
+            "status" : "active"
+        },
+        "king": {
+            "pos":["(315, 0)"],
+            "src" : "images/pieces/white/king.png",
+            "status" : "active"
+        },
+        "queen": {
+            "pos":["(415, 0)"],
+            "src" : "images/pieces/white/queen.png",
+            "status" : "active"
+        },
+        "r_mad" : {
+            "pos":["(515, 0)"],
+            "src" : "images/pieces/white/mad.png",
+            "status" : "active"
+        },
+        "r_knight": {
+            "pos":["(615, 0)"],
+            "src" : "images/pieces/white/knight.png",
+            "status" : "active"
+        },
+        "r_round": {
+            "pos":["(715, 0)"],
+            "src" : "images/pieces/white/round.png",
+            "status" : "active"
+        },
+        "pawn_1": {
+            "pos":["(15, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_2": {
+            "pos":["(115, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_3": {
+            "pos":["(215, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_4": {
+            "pos":["(315, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_5": {
+            "pos":["(415, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_6": {
+            "pos":["(515, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_7": {
+            "pos":["(615, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        },
+        "pawn_8": {
+            "pos":["(715, 72)"],
+            "src" : "images/pieces/white/pawn.png",
+            "status" : "active"
+        }
+    },
+    "black": {
+        "l_round": {
+            "pos":["(15, 432)"],
+            "src" : "images/pieces/black/round.png",
+            "status" : "active"
+        },
+        "l_knight": {
+            "pos":["(115, 432)"],
+            "src" : "images/pieces/black/knight.png",
+            "status" : "active"
+        },
+        "l_mad": {
+            "pos":["(215, 432)"],
+            "src" : "images/pieces/black/mad.png",
+            "status" : "active"
+        },
+        "king": {
+            "pos":["(315, 432)"],
+            "src" : "images/pieces/black/king.png",
+            "status" : "active"
+        },
+        "queen": {
+            "pos":["(415, 432)"],
+            "src" : "images/pieces/black/queen.png",
+            "status" : "active"
+        },
+        "r_mad" : {
+            "pos":["(515, 432)"],
+            "src" : "images/pieces/black/mad.png",
+            "status" : "active"
+        },
+        "r_knight": {
+            "pos":["(615, 432)"],
+            "src" : "images/pieces/black/knight.png",
+            "status" : "active"
+        },
+        "r_round": {
+            "pos":["(715, 432)"],
+            "src" : "images/pieces/black/round.png",
+            "status" : "active"
+        },
+        "pawn_1": {
+            "pos":["(15, 432)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_2": {
+            "pos":["(115, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_3": {
+            "pos":["(215, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_4": {
+            "pos":["(315, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_5": {
+            "pos":["(415, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_6": {
+            "pos":["(515, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_7": {
+            "pos":["(615, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        },
+        "pawn_8": {
+            "pos":["(715, 360)"],
+            "src" : "images/pieces/black/pawn.png",
+            "status" : "active"
+        }
     }
 }
