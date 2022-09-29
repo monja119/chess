@@ -22,11 +22,11 @@ class Main:
 new_data = []
 chess = Main(new_data)
 
-# commands of the game
+# status of the game
 status_click = 0
+move = 'black'
 
 running = True
-print(chess.data)
 target_pos = (0, 0)
 while running:
     for event in pygame.event.get():
@@ -46,13 +46,15 @@ while running:
 
                         for k in range(len(chess.data)):
                             if target_pos == chess.data[k]['pos']:
-                                chess.data[k]['pos'] = new_pos
-                                new_data = chess.data
-                                chess.data = new_data
-                                chess = Pieces(new_data)
-                                print("move")
-                        print('new pos {} and target {} '.format(new_pos, target_pos))
+                                # updating position
+                                chess.data[k]['pos'] = new_pos  # pos
 
+                                # updating rectangle
+                                chess.data[k]['rect'] = pygame.Rect(new_pos[0] - 15, new_pos[1], 100, 72)
+
+                                # pushing new data
+                                new_data = chess.data
+                                chess = Pieces(new_data)
                 status_click = 0
 
             else:
@@ -65,6 +67,7 @@ while running:
                         pos_index = str(pieces_rect).strip('<rect(')
                         pos_index = eval(pos_index.strip(')>'))
                         pos_index = (pos_index[0] + 15, pos_index[1])
+
 
                         status_click = 1
                         target_pos = pos_index
