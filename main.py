@@ -24,7 +24,9 @@ chess = Main(new_data)
 
 # status of the game
 status_click = 0
-move = 'black'
+piece_color = ['black', 'white']
+turn = ''
+moves = 0
 
 running = True
 target_pos = (0, 0)
@@ -43,7 +45,6 @@ while running:
                         new_pos = str(tiles).strip('<rect(')
                         new_pos = eval(new_pos.strip(')>'))
                         new_pos = (new_pos[0] + 15, new_pos[1])
-
                         for k in range(len(chess.data)):
                             if target_pos == chess.data[k]['pos']:
                                 # updating position
@@ -55,20 +56,33 @@ while running:
                                 # pushing new data
                                 new_data = chess.data
                                 chess = Pieces(new_data)
+
+                                # updating moves
+                                moves += 1
+                                turn = piece_color[moves % 2]
+                                print(moves)
+
                 status_click = 0
 
             else:
 
                 for i in range(len(chess.data)):
                     data = chess.data
-                    pieces_rect = chess.data[i]['rect']
+                    pieces_rect = data[i]['rect']
                     # verification of collied point
                     if pieces_rect.collidepoint(mouse_pos):
-                        pos_index = str(pieces_rect).strip('<rect(')
-                        pos_index = eval(pos_index.strip(')>'))
-                        pos_index = (pos_index[0] + 15, pos_index[1])
+                        color = data[i]['src'].split('/')[2]
+                        # managing turn
+                        if moves == 0:
+                            turn = color
+                            moves = piece_color.index(color)
+                            turn = piece_color[moves % 2]
 
+                        if turn == color:
+                            pos_index = str(pieces_rect).strip('<rect(')
+                            pos_index = eval(pos_index.strip(')>'))
+                            pos_index = (pos_index[0] + 15, pos_index[1])
+                            target_pos = pos_index
 
                         status_click = 1
-                        target_pos = pos_index
 
