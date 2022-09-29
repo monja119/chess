@@ -13,12 +13,17 @@ class Pieces:
         # getting position
         with open('position.json', 'r') as position:
             position = json.load(position)
-        print(position["white"])
-        # placing pieces
-        left = 115
-        top = 72
-        p = pygame.image.load('images/pieces/black/pawn.png').convert_alpha()
-        window.blit(p, (left, top))
+
+        for key, value in position.items():
+            # white or black
+            for k, v in value.items():
+                # pieces id and its data
+                print(k, eval(v['pos'][-1]), v['src'], sep=" - ")
+                src = v['src']
+                pos = eval(v['pos'][-1])
+                piece = pygame.image.load(src).convert_alpha()
+                window.blit(piece, pos)
+
 
         # updating game
         pygame.display.flip()
