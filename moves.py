@@ -16,6 +16,7 @@ class Moves:
             'knight': 'self.knight(target_pos, new_pos, color)',
             'mad': 'self.mad(target_pos, new_pos, color)',
             'queen': 'self.queen(target_pos, new_pos, color)',
+            'king': 'self.king(target_pos, new_pos, color)',
         }
 
         # accepting
@@ -192,3 +193,32 @@ class Moves:
         elif block[2] is False:
             return True
 
+    def king(self, target_pos, new_pos, color):
+        catch = self.catch(new_pos, color)
+        x = target_pos[0]
+        y = target_pos[1]
+        allowed_xy = []
+        allowed_x = [
+            x,
+            x + 100,
+            x - 100
+        ]
+        allowed_y = [
+            y,
+            y + 72,
+            y - 72
+        ]
+
+        for i in range(6):
+            counter = i % 3
+            if i < 3:
+                for j in range(3):
+                    allowed_xy.append((allowed_x[counter], allowed_y[j]))
+            else:
+                for j in range(3):
+                    allowed_xy.append((allowed_x[j], allowed_y[counter]))
+
+        for k in range(len(allowed_xy)):
+            if allowed_xy[k] == new_pos and self.suicide is False:
+                return True
+                break
