@@ -7,10 +7,15 @@ class Moves:
         self.data = data
         self.name = name
         self.color = color
+        self.suicide = False
         movement = {
             'pawn': 'self.pawn(target_pos, new_pos, color)',
-            'round': 'self.round(target_pos, new_pos, color)'
+            'round': 'self.round(target_pos, new_pos, color)',
+            'knight': 'self.knight(target_pos, new_pos, color)',
+            'mad': 'self.mad(target_pos, new_pos, color)',
         }
+
+        # accepting
         self.accept = eval(movement[name])
 
     def catch(self, new_pos, color):
@@ -18,6 +23,9 @@ class Moves:
             if self.data[k]['pos'] == new_pos:
                 self.catch_color = self.data[k]['src'].split('/')[2]
                 self.catch_name = self.data[k]['src'].split('/')[-1].split('.')[0]
+
+                if self.catch_color == self.color:
+                    self.suicide = True
                 print('{} {} catched by {} {}'.format(self.catch_color, self.catch_name, self.color, self.name))
 
                 return True
@@ -25,6 +33,7 @@ class Moves:
 
     def pawn(self, target_pos, new_pos, color):
         catch = self.catch(new_pos, color)
+
         match color:
             # black pawn
             case 'black':
@@ -61,3 +70,17 @@ class Moves:
                     or target_pos[0] // 100 in range(9) and target_pos[1] == new_pos[1]) \
                         and self.catch_color != 'white':
                     return True
+
+    # KNIGHT
+    def knight(self, target_pos, new_pos, color):
+        catch = self.catch(new_pos, color)
+        # L normal
+        if (new_pos[0] + 100 == target_pos[0] or new_pos[0] - 100 == target_pos[0]) \
+                and (new_pos[1] - 144 == target_pos[1] or new_pos[1] + 144 == target_pos[1]) and self.suicide is not True:
+
+            return True
+        # L reversed
+        if (new_pos[0] + 200 == target_pos[0] or new_pos[0] - 200 == target_pos[0]) \
+                and (new_pos[1] - 72 == target_pos[1] or new_pos[1] + 72 == target_pos[1]) and self.suicide is not True:
+            return True
+
