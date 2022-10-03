@@ -29,7 +29,6 @@ piece_color = ['black', 'white']
 turn = ''
 moves = 0
 
-
 running = True
 target_pos = (0, 0)
 while running:
@@ -50,26 +49,22 @@ while running:
                         new_pos = (new_pos[0] + 15, new_pos[1])
 
                         for k in range(len(chess.data)):
-                            try:
-                                if target_pos == chess.data[k]['pos'] and target_pos != new_pos:
-                                    # MOVEMENT <>
-                                    move = Moves(target_pos, new_pos, name, color, chess.data)
+                            if target_pos == chess.data[k]['pos'] and target_pos != new_pos:
+                                # MOVEMENT <>
+                                target_index = chess.data.index(chess.data[k])
+                                move = Moves(target_pos, new_pos, name, color, chess.data, target_index)
 
-                                    if move.accept is not None:
-                                        # updating position
-                                        chess.data[k]['pos'] = new_pos  # pos
-                                        # updating rectangle
-                                        chess.data[k]['rect'] = pygame.Rect(new_pos[0] - 15, new_pos[1], 100, 72)
-                                        # pushing new data
-                                        new_data = chess.data
-                                        chess = Pieces(new_data)
-                                        # updating moves
-                                        moves += 1
-                                        turn = piece_color[moves % 2]
-                                        break
-                            except IndexError:
-                                pass
-
+                                if move.accept is not None:
+                                    # updating position
+                                    chess.data[k]['pos'] = new_pos  # pos
+                                    # updating rectangle
+                                    chess.data[k]['rect'] = pygame.Rect(new_pos[0] - 15, new_pos[1], 100, 72)
+                                    # pushing new data
+                                    chess = Pieces(chess.data)
+                                    # updating moves
+                                    moves += 1
+                                    turn = piece_color[moves % 2]
+                                    break
 
                 status_click = 0
 

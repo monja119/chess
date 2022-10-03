@@ -36,7 +36,7 @@ class Pieces:
                         piece = pygame.image.load(src).convert_alpha()
                         window.blit(piece, pos)  # loading
         else:
-            board.draw_board()
+            board.draw_board(None)
             for i in range(len(data)):
                 if data[i]['pos'] is not None:
                     piece = pygame.image.load(data[i]['src']).convert_alpha()

@@ -10,13 +10,13 @@ class Board:
         # window
         self.board = pygame.display.set_mode((width, height))
         self.tiles = []
-
-        self.draw_board()
+        self.path = []
+        self.draw_board(self.path)
         # displaying
         pygame.display.set_caption("Chess Game")
         pygame.display.flip()
 
-    def draw_board(self):
+    def draw_board(self, path):
 
         # background
         white = (100, 100, 100)
