@@ -132,7 +132,6 @@ class Moves:
                             match color:
                                 case 'black':
                                     if index_y < 0:
-
                                         allowed = True
                                 case 'white':
                                     if index_y > 0:

@@ -10,8 +10,7 @@ class Board:
         # window
         self.board = pygame.display.set_mode((width, height))
         self.tiles = []
-        self.path = []
-        self.draw_board(self.path)
+        self.draw_board(None)
         # displaying
         pygame.display.set_caption("Chess Game")
         pygame.display.flip()
@@ -40,3 +39,6 @@ class Board:
             # loading images
             pygame.draw.rect(self.board, colors[i % 2], pygame.Rect(left, top, tile_width, tile_height))
             left += tile_width
+
+        # drawing help
+        # pygame.draw.rect(self.board, 'green', pygame.Rect(path[0] + 50, path[1] + 30, 10, 10))

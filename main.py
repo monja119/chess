@@ -83,6 +83,8 @@ while running:
                             moves = piece_color.index(color)
                             turn = piece_color[moves % 2]
 
+
+
                         if turn == color:
                             pos_index = str(pieces_rect).strip('<rect(')
                             pos_index = eval(pos_index.strip(')>'))
